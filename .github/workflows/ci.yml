@@ -23,10 +23,10 @@ jobs:
 
       - name: Instalar dependencias
         run: |
-          cd backend
+          cd repo
           npm install  
 
       - name: Ejecutar pruebas
         run: |
-          cd backend
+          cd repo
           npm test 
