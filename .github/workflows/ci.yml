@@ -1,0 +1,32 @@
+name: CI
+
+on: 
+  push:
+    branches:
+      - main  
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Configurar Node.js (si usas Node.js)
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22.9.0'  
+
+      - name: Instalar dependencias
+        run: |
+          cd backend
+          npm install  
+
+      - name: Ejecutar pruebas
+        run: |
+          cd backend
+          npm test 
